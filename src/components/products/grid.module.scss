@@ -1,0 +1,82 @@
+@use "../utils.scss" as *;
+
+.products_grid {
+  @include container;
+
+  --grid-border: 1px solid #000;
+  --hover-animation: 0.35s ease-in-out;
+
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-gap: 1px;
+  padding-bottom: 1px;
+
+  @media (min-width: $md-width) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: $lg-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: $xl-width) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    outline: var(--grid-border);
+    padding: 16px;
+    gap: 24px;
+
+    background: linear-gradient(#fff, #fff 50%, #000 50%, #000);
+    background-size: 100% 200%;
+    transition: background var(--hover-animation);
+
+    &__image {
+      width: 100%;
+      height: auto;
+      padding: 30px;
+    }
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+      font-weight: 300;
+      text-transform: uppercase;
+      line-height: 1.2;
+      transition: color var(--hover-animation);
+
+      &__brand {
+        transition: color var(--hover-animation);
+        font-size: 10px;
+        color: #79736D;
+      }
+
+      &__name_price {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+      }
+    }
+
+    &:hover {
+      background-position: 100% 100%;
+
+      .products_grid__item {
+        &__details {
+          color: #fff;
+
+          &__brand {
+            color: #ccc;
+          }
+        }
+      }
+    }
+  }
+}
