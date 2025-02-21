@@ -1,22 +1,11 @@
-@import "globals.scss";
+@use "utils.scss";
 
 .app_bar {
-  --app-bar-height: 80px;
+  @extend .container;
 
-  min-height: var(--app-bar-height);
-  padding: 16px;
+  min-height: 80px;
   display: flex;
   align-items: center;
-  
-  @media (min-width: $md-width) {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  @media (min-width: $lg-width) {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
 
   &__cart_counter {
     margin-left: auto;

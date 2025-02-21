@@ -1,5 +1,11 @@
+import Searcher from "@/components/searcher";
+
 export default function IndexRoute() {
   return (
-    <div>INDEX ROUTE</div>
+    <div>
+      <Searcher />
+
+      INDEX!!
+    </div>
   );
 }

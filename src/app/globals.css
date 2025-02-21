@@ -1,9 +1,6 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --sm-width: 480px;
-  --md-width: 720px;
-  --lg-width: 1200px;
+  --foreground: #000000;
 }
 
 html,

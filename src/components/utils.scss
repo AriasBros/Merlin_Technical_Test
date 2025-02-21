@@ -1,0 +1,30 @@
+$sm-width: 480px;
+$md-width: 720px;
+$lg-width: 1200px;
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media (min-width: $md-width) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (min-width: $lg-width) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@mixin button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin button--centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
