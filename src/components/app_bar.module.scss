@@ -26,15 +26,15 @@
     align-items: center;
 
     &__icon {
-      background-image: url('/icons/bag_outline.svg');
+      background-image: url('/icons/bag.svg');
       width: 24px;
       height: 25px;
     }
 
-    &:hover {
+    &--empty {
       .app_bar__cart_counter {
         &__icon {
-          background-image: url('/icons/bag.svg');
+          background-image: url('/icons/bag_outline.svg');
         }
       }
     }
