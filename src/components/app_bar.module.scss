@@ -1,11 +1,18 @@
-@use "utils.scss";
+@use "utils.scss" as *;
 
 .app_bar {
-  @extend .container;
+  @include container;
+  @include sticky;
 
-  min-height: 80px;
+  margin: 15px 0;
+  height: $app-bar-height;
+  background-color: #fff;
   display: flex;
   align-items: center;
+
+  &__link_logo {
+    display: flex;
+  }
 
   &__cart_counter {
     margin-left: auto;

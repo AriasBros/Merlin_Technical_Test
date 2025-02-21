@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function AppBar() {
   return (
     <header className={styles.app_bar}>
-      <Link href='/' aria-label='Go to the index page'>
+      <Link href='/' aria-label='Go to the index page' className={styles.app_bar__link_logo}>
         <Image src='/brand_logo.svg' alt='Brand Logotype' width={77} height={30} priority={true} />
       </Link>
 
