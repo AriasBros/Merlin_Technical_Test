@@ -31,12 +31,15 @@
     flex-direction: column;
     justify-content: space-between;
     outline: var(--grid-border);
-    padding: 16px;
     gap: 24px;
 
     background: linear-gradient(#fff, #fff 50%, #000 50%, #000);
     background-size: 100% 200%;
     transition: background var(--hover-animation);
+
+    &__link {
+      padding: 16px;
+    }
 
     &__image {
       width: 100%;

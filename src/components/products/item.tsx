@@ -13,7 +13,7 @@ interface Props {
 export default function ProductItem({id, name, brand, image, price}: Props) {
   return (
     <li className={styles.products_grid__item}>
-      <Link href={`/product/${id}`}>
+      <Link href={`/product/${id}`} className={styles.products_grid__item__link}>
         <Image className={styles.products_grid__item__image} src={image} alt={name} width={345} height={290} />
 
         <div className={styles.products_grid__item__details}>
