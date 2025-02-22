@@ -1,0 +1,58 @@
+@use "./utils" as *;
+
+.button {
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  height: 40px;
+
+  @include button;
+
+  @media (min-width: $lg-width) {
+    height: 48px;
+  }
+
+  &--disabled {
+    cursor: default;
+  }
+
+  &--primary {
+    color: #fff;
+    background-color: #1B1A18;
+    transition: background-color 0.15s ease-out;
+
+    &:hover {
+      background-color: #282624;
+    }
+
+    &:active {
+      background-color: #363331;
+    }
+
+    &.button--disabled {
+      color: #C2BFBC;
+      background-color: #F3F2F2;
+    }
+  }
+
+  &--standard {
+    color: #000;
+    border: 0.5px solid #1B1A18;
+
+    &:hover {
+      color: #504D49;
+      border-color: #282624;
+    }
+
+    &:active {
+      color: #000;
+      border-color: #363331;
+    }
+
+    &.button--disabled {
+      color: #C2BFBC;
+      border-color: #DBD9D7;
+    }
+  }
+}
