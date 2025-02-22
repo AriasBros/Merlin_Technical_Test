@@ -4,14 +4,16 @@ import {ChangeEvent, useState} from "react";
 import {clsx} from "clsx";
 
 interface SearchBarProps {
+  resultsCount?: number;
   onChange: (value: string) => void;
 }
 
-export default function SearchBar({ onChange }: SearchBarProps) {
+export default function SearchBar({ resultsCount, onChange }: SearchBarProps) {
   const [text, setText] = useState('');
   const classes = clsx(
     styles.search_bar,
     text.length === 0 ? styles['search_bar--empty'] : null,
+    resultsCount === null || resultsCount === undefined ? styles['search_bar--searching'] : null,
   );
 
   function _setText(value: string) {
@@ -45,9 +47,15 @@ export default function SearchBar({ onChange }: SearchBarProps) {
         </button>
       </div>
 
-      <div className={styles.search_bar__bottom}>
-        20 Results
-      </div>
+      <SearchBarBottom resultsCount={resultsCount} />
+    </div>
+  );
+}
+
+function SearchBarBottom({resultsCount}: {resultsCount?: number}) {
+  return (
+    <div className={styles.search_bar__bottom}>
+      {resultsCount} {resultsCount === 1 ? 'Result' : 'Results'}
     </div>
   );
 }

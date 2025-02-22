@@ -62,4 +62,10 @@
       }
     }
   }
+
+  &--searching {
+    .search_bar__bottom {
+      visibility: hidden;
+    }
+  }
 }
