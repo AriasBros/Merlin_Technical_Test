@@ -1,19 +1,9 @@
-import {ProductInterface, ProductModel} from "@/data/models/product";
-
-interface ProductPayload {
-  readonly id: string;
-  readonly brand: string;
-  readonly name: string;
-  readonly imageUrl: string;
-  readonly basePrice: number;
-}
+import { ProductInterface } from "@/data/models/product";
+import { default as fetch } from "./fetch";
+import { modelFromPayload, ProductPayload } from "@/data/payloads/product";
 
 export async function fetcher(url: string): Promise<ProductInterface[]> {
-  const response: ProductPayload[] = await (await fetch(url, {
-    headers: {
-      'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '',
-    }
-  })).json();
+  const response: ProductPayload[] = await fetch(url);
 
   // Because the API is responding with duplicated items, for example the item XMI-RN13P5G,
   // we filter the response to remove them.
@@ -28,13 +18,7 @@ export async function fetcher(url: string): Promise<ProductInterface[]> {
   const products: Record<string, ProductInterface> = {};
 
   for (const payload of response) {
-    products[payload.id] = products[payload.id] ?? new ProductModel({
-      id: payload.id,
-      name: payload.name,
-      brand: payload.brand,
-      image: payload.imageUrl,
-      price: payload.basePrice,
-    });
+    products[payload.id] = products[payload.id] ?? modelFromPayload(payload);
   }
 
   return Object.values(products);

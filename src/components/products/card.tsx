@@ -16,6 +16,7 @@ export default function ProductCard({ id, name, brand, image, price }: Props) {
       <Link
         href={`/product/${id}`}
         className={styles.products_grid__item__link}
+        scroll={false}
       >
         <Image
           className={styles.products_grid__item__image}

@@ -3,7 +3,7 @@
 .app_bar {
   margin: 15px 0;
   height: $app-bar-height;
-  background-color: #fff;
+  background-color: var(--background);
   display: flex;
   align-items: center;
 

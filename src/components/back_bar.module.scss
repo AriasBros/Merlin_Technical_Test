@@ -1,0 +1,25 @@
+@use "utils.scss" as *;
+
+.back_bar {
+  display: flex;
+  margin: 8px 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: var(--background);
+
+  @include container;
+  @include sticky($app-bar-height);
+
+  &__link {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+
+    &:hover {
+      font-weight: 500;
+    }
+  }
+}

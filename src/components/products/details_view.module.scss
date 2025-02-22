@@ -1,0 +1,16 @@
+@use "../utils" as *;
+
+.product_details_view {
+  font-weight: 300;
+  @include container;
+
+  @media (min-width: $md-width) {
+    max-width: 754px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: $lg-width) {
+    max-width: 1200px;
+  }
+}

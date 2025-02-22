@@ -1,0 +1,42 @@
+@use "../utils" as *;
+@use "./picker" as *;
+
+@mixin _highlighted-item($color: #000) {
+  position: relative;
+  z-index: 1;
+  outline-color: $color;
+}
+
+.product_storage_picker {
+  @include picker;
+
+  &__list {
+    gap: 1px;
+  }
+
+  &__item {
+    &__button {
+      font-size: 12px;
+      width: 89px;
+      height: 48px;
+      outline: 1px solid #ccc;
+
+      @media (min-width: $lg-width) {
+        font-size: 14px;
+        width: 95px;
+        height: 65px;
+      }
+
+      &:hover {
+        @include _highlighted-item(#888);
+      }
+    }
+
+    &--selected {
+      .product_storage_picker__item__button {
+        cursor: default;
+        @include _highlighted-item;
+      }
+    }
+  }
+}

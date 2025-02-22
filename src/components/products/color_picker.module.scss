@@ -1,0 +1,42 @@
+@use "../utils" as *;
+@use "./picker" as *;
+
+.product_color_picker {
+  @include picker;
+
+  &__selection {
+    font-size: 12px;
+    margin-top: 8px;
+    min-height: 15px;
+  }
+
+  &__list {
+    gap: 16px;
+  }
+
+  &__item {
+    &__button {
+      border: 1px solid #ccc;
+
+      &:hover {
+        border-color: #888;
+      }
+    }
+
+    &__swatch {
+      width: 20px;
+      height: 20px;
+      background-color: #000;
+      display: block;
+      margin: 1px;
+    }
+
+
+    &--selected {
+      .product_color_picker__item__button {
+        cursor: default;
+        border-color: #000;
+      }
+    }
+  }
+}
