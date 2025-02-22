@@ -1,7 +1,7 @@
 import { ColorInterface } from "@/data/models/color";
 import { StorageInterface } from "@/data/models/storage";
 
-export interface ProductInterface {
+interface ProductProps {
   readonly id: string;
   readonly brand: string;
   readonly name: string;
@@ -15,7 +15,9 @@ export interface ProductInterface {
   readonly colors?: ColorInterface[];
   readonly storages?: StorageInterface[];
   readonly related?: ProductInterface[];
+}
 
+export interface ProductInterface extends ProductProps {
   getImage(color?: ColorInterface): string;
 }
 
@@ -93,7 +95,7 @@ export class ProductModel implements ProductInterface, SpecsInterface {
     colors,
     storages,
     related,
-  }: ProductInterface) {
+  }: ProductProps) {
     this.id = id;
     this.name = name;
     this.brand = brand;
