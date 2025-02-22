@@ -1,18 +1,28 @@
+'use client';
+
 import styles from './grid.module.scss';
 import ProductItem from "@/components/products/item";
+import {useProducts} from "@/data/providers/products";
 
 export default function ProductsGrid() {
+  const { data, isLoading } = useProducts();
+
+  if (isLoading) {
+    return <></>;
+  }
+
   return (
     <ul className={styles.products_grid}>
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
-      <ProductItem id='APL-I15PM' name='iPhone 15 Pro' brand='Apple' price={1219} image='http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.png' />
+      {data.map(product => (
+        <ProductItem
+          key={product.id}
+          id={product.id}
+          name={product.name}
+          brand={product.name}
+          price={product.price}
+          image={product.image}
+        />
+      ))}
     </ul>
   );
 }
