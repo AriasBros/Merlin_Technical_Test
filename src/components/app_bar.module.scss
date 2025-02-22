@@ -1,14 +1,14 @@
 @use "utils.scss" as *;
 
 .app_bar {
-  @include container;
-  @include sticky;
-
   margin: 15px 0;
   height: $app-bar-height;
   background-color: #fff;
   display: flex;
   align-items: center;
+
+  @include container;
+  @include sticky;
 
   &__link_logo {
     display: flex;

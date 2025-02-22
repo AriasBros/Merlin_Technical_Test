@@ -21,9 +21,11 @@ $app-bar-height: 46px;
 }
 
 @mixin sticky($top: 0, $z-index: 1) {
-  position: sticky;
-  top: $top;
-  z-index: $z-index;
+  & {
+    top: $top;
+    z-index: $z-index;
+    position: sticky;
+  }
 }
 
 @mixin button {

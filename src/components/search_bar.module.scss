@@ -1,13 +1,13 @@
 @use "utils.scss" as *;
 
 .search_bar {
-  @include container;
-  @include sticky($app-bar-height);
-
   background-color: #fff;
   margin: 24px 0;
   padding-top: 12px;
   padding-bottom: 12px;
+
+  @include container;
+  @include sticky($app-bar-height);
 
   @media (min-width: $md-width) {
     margin: 48px 0;
