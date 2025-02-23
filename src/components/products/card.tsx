@@ -9,7 +9,7 @@ interface Props {
   name: string;
   brand: string;
   price: number;
-  fixed: boolean;
+  fixed?: boolean;
 }
 
 export default function ProductCard({
