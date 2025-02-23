@@ -19,7 +19,7 @@ export default function ProductsGrid() {
           key={product.id}
           id={product.id}
           name={product.name}
-          brand={product.name}
+          brand={product.brand}
           price={product.price}
           image={product.image}
         />
