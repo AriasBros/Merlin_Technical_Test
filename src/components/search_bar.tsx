@@ -5,11 +5,16 @@ import Icon from "@/components/icon";
 
 interface SearchBarProps {
   resultsCount?: number;
+  value?: string | null;
   onChange: (value: string) => void;
 }
 
-export default function SearchBar({ resultsCount, onChange }: SearchBarProps) {
-  const [text, setText] = useState("");
+export default function SearchBar({
+  resultsCount,
+  value,
+  onChange,
+}: SearchBarProps) {
+  const [text, setText] = useState(value ?? "");
   const classes = clsx(
     styles.search_bar,
     text.length === 0 ? styles["search_bar--empty"] : null,

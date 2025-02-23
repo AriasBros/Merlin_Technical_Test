@@ -1,20 +1,25 @@
-'use client';
+"use client";
 
 import SearchBar from "@/components/search_bar";
-import {useProducts} from "@/data/providers/products";
+import { useProducts } from "@/data/providers/products";
 
 export default function Searcher() {
-  const { data, isLoading } = useProducts();
+  const { data, isLoading, isSearching, performSearch, searchQuery } =
+    useProducts();
 
-  if (isLoading) {
+  if (isLoading && !isSearching) {
     return <></>;
   }
 
   function _handleChange(value: string) {
-    console.log(value)
+    performSearch(value);
   }
 
   return (
-    <SearchBar resultsCount={data.length} onChange={_handleChange} />
+    <SearchBar
+      value={searchQuery}
+      resultsCount={data.length}
+      onChange={_handleChange}
+    />
   );
 }
