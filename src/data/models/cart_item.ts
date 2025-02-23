@@ -2,7 +2,7 @@ import { ProductInterface } from "@/data/models/product";
 import { ColorInterface } from "@/data/models/color";
 import { StorageInterface } from "@/data/models/storage";
 
-interface CartItemProperties {
+export interface CartItemProperties {
   readonly product: ProductInterface;
   readonly color: ColorInterface;
   readonly storage: StorageInterface;

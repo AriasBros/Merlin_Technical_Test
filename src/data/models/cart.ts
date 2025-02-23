@@ -1,19 +1,24 @@
-import { CartItemInterface, CartItemModel } from "@/data/models/cart_item";
+import {
+  CartItemInterface,
+  CartItemModel,
+  CartItemProperties,
+} from "@/data/models/cart_item";
 
 type MapCallback<T> = (item: CartItemInterface, index: number) => T;
 
 export interface CartInterface {
   get totalPrice(): number;
   get itemsCount(): number;
+  get isEmpty(): boolean;
 
-  push(item: CartItemInterface): CartModel;
+  push(item: CartItemProperties): CartModel;
   remove(index: number): CartModel;
 
   map<T>(callback: MapCallback<T>): T[];
 }
 
 export class CartModel implements CartInterface {
-  readonly items: CartItemInterface[];
+  private readonly items: CartItemInterface[];
 
   constructor(items: CartItemInterface[]) {
     this.items = items;
@@ -21,6 +26,10 @@ export class CartModel implements CartInterface {
 
   static empty(): CartModel {
     return new CartModel([]);
+  }
+
+  get isEmpty(): boolean {
+    return this.items.length === 0;
   }
 
   get totalPrice(): number {
@@ -37,7 +46,7 @@ export class CartModel implements CartInterface {
     return this.items.length;
   }
 
-  push(item: CartItemInterface): CartModel {
+  push(item: CartItemProperties): CartModel {
     return new CartModel([
       ...this.items,
       new CartItemModel({

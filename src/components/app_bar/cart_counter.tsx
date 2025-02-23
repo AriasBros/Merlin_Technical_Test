@@ -4,13 +4,19 @@ import styles from "../app_bar.module.scss";
 import Link from "next/link";
 import { clsx } from "clsx";
 import { useCart } from "@/data/providers/cart";
+import { usePathname } from "next/navigation";
 
 export default function CartCounter() {
   const { cart } = useCart();
+  const pathname = usePathname();
+
+  if (pathname === "/cart") {
+    return <></>;
+  }
 
   const classes = clsx(
     styles.app_bar__cart_counter,
-    styles["app_bar__cart_counter--empty"], // TODO - Add logic.
+    cart.isEmpty ? styles["app_bar__cart_counter--empty"] : null,
   );
 
   return (
