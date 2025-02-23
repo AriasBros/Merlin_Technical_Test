@@ -5,6 +5,7 @@ import {
   createContext,
   ReactNode,
   useContext,
+  useEffect,
   useReducer,
 } from "react";
 import { ProductInterface } from "@/data/models/product";
@@ -15,6 +16,7 @@ import { CartInterface, CartModel } from "@/data/models/cart";
 export enum CartActionType {
   Add = "Add",
   Remove = "Remove",
+  Hydrate = "Hydrate",
 }
 
 interface CartAction {
@@ -41,6 +43,9 @@ function reducer(cart: CartInterface, action: CartAction): CartInterface {
 
     case CartActionType.Remove:
       return cart.remove(action.index!);
+
+    case CartActionType.Hydrate:
+      return CartModel.saved();
   }
 }
 
@@ -52,6 +57,10 @@ interface Props {
 
 export function CartProvider({ children }: Props) {
   const [cart, dispatch] = useReducer(reducer, CartModel.empty());
+
+  useEffect(() => {
+    dispatch({ type: CartActionType.Hydrate });
+  }, []);
 
   return (
     <CartContext.Provider value={{ cart, dispatch }}>
