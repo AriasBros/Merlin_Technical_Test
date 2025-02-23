@@ -1,7 +1,8 @@
-import type {Metadata, Viewport} from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import {ReactNode} from "react";
+import { ReactNode } from "react";
 import AppBar from "@/components/app_bar";
+import { CartProvider } from "@/data/providers/cart";
 
 export const metadata: Metadata = {
   title: "Prueba Técnica | Merlin",
@@ -9,8 +10,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#ffffff',
-}
+  themeColor: "#ffffff",
+};
 
 export default function RootLayout({
   children,
@@ -20,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AppBar />
-        {children}
+        <CartProvider>
+          <AppBar />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

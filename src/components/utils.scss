@@ -3,6 +3,8 @@ $md-width: 720px;
 $lg-width: 1200px;
 $xl-width: 1600px;
 
+$tablet-width: 834px;
+
 $app-bar-height: 46px;
 
 @mixin container {
@@ -43,5 +45,16 @@ $app-bar-height: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@mixin main-heading {
+  & {
+    font-size: 20px;
+    font-weight: 300;
+
+    @media (min-width: $lg-width) {
+      font-size: 24px;
+    }
   }
 }

@@ -1,0 +1,52 @@
+@use "../utils" as *;
+
+.cart_item {
+  display: flex;
+  gap: 24px;
+
+  &__image {
+    max-width: 160px;
+    width: auto;
+    height: auto;
+    flex: 1;
+    margin: auto 0;
+
+    @media (min-width: $md-width) {
+      max-width: 262px;
+    }
+  }
+
+  &__details {
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 42px 0;
+
+    &__name {
+      font-size: 12px;
+      font-weight: 300;
+      margin-bottom: 20px;
+
+      &__secondary_line {
+        display: block;
+        margin-top: 4px;
+      }
+    }
+
+    &__button {
+      margin-top: auto;
+      color: #DF0000;
+      font-size: 12px;
+      font-weight: 300;
+
+      @include button;
+
+      &:hover {
+        color: #DF000099;
+      }
+    }
+  }
+}

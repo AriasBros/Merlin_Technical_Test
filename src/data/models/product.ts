@@ -19,6 +19,7 @@ interface ProductProps {
 
 export interface ProductInterface extends ProductProps {
   getImage(color?: ColorInterface): string;
+  getPrice(storage?: StorageInterface): number;
 }
 
 export interface SpecsInterface {
@@ -49,6 +50,10 @@ export class ProductModel implements ProductInterface, SpecsInterface {
 
   getImage(color?: ColorInterface): string {
     return color?.image ?? this.image;
+  }
+
+  getPrice(storage?: StorageInterface): number {
+    return storage?.price ?? this.price;
   }
 
   get os() {

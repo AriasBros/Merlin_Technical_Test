@@ -1,6 +1,16 @@
 @use "../../utils" as *;
 
 .product_specs {
+  margin-top: 80px;
+
+  @media (min-width: $md-width) {
+    margin-top: 88px;
+  }
+
+  @media (min-width: $lg-width) {
+    margin-top: 154px;
+  }
+
   &__title {
     font-size: 20px;
     font-weight: 300;

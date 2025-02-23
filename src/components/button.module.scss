@@ -5,12 +5,25 @@
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  height: 40px;
+  line-height: 1.25;
+  padding: 16px;
+  text-align: center;
 
   @include button;
 
   @media (min-width: $lg-width) {
-    height: 48px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &--dense {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    @media (min-width: $lg-width) {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
   }
 
   &--disabled {
