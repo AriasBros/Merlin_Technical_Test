@@ -1,0 +1,13 @@
+@use "@/components/utils" as *;
+
+.product_route {
+    padding-bottom: 80px;
+
+    @media (min-width: $md-width) {
+        padding-bottom: 47px;
+    }
+
+    @media (min-width: $lg-width) {
+        padding-bottom: 147px;
+    }
+}

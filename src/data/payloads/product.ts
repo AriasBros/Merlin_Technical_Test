@@ -1,4 +1,4 @@
-import { ProductModel } from "@/data/models/product";
+import { ProductInterface, ProductModel } from "@/data/models/product";
 import { ColorInterface, ColorModel } from "@/data/models/color";
 import { StorageInterface, StorageModel } from "@/data/models/storage";
 
@@ -51,6 +51,7 @@ export function modelFromPayload(payload: ProductPayload): ProductModel {
     specs: payload.specs,
     colors: _colorsFromPayload(payload.colorOptions),
     storages: _storagesFromPayload(payload.storageOptions),
+    related: _relatedFromPayload(payload.similarProducts),
   });
 }
 
@@ -87,4 +88,16 @@ function _colorsFromPayload(payload?: ColorOptionPayload[]) {
   }
 
   return colors;
+}
+
+function _relatedFromPayload(payload?: ProductPayload[]) {
+  const products: ProductInterface[] = [];
+
+  if (payload) {
+    for (const product of payload) {
+      products.push(modelFromPayload(product));
+    }
+  }
+
+  return products;
 }

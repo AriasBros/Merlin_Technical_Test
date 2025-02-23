@@ -1,6 +1,7 @@
-import styles from "./grid.module.scss";
+import styles from "./card.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { clsx } from "clsx";
 
 interface Props {
   image: string;
@@ -8,34 +9,41 @@ interface Props {
   name: string;
   brand: string;
   price: number;
+  fixed: boolean;
 }
 
-export default function ProductCard({ id, name, brand, image, price }: Props) {
+export default function ProductCard({
+  id,
+  name,
+  brand,
+  image,
+  price,
+  fixed = false,
+}: Props) {
+  const classes = clsx(
+    styles.product_card,
+    fixed ? styles["product_card--fixed"] : null,
+  );
+
   return (
-    <li className={styles.products_grid__item}>
-      <Link
-        href={`/product/${id}`}
-        className={styles.products_grid__item__link}
-      >
+    <li className={classes}>
+      <Link href={`/product/${id}`} className={styles.product_card__link}>
         <Image
-          className={styles.products_grid__item__image}
+          className={styles.product_card__image}
           src={image}
           alt={name}
           width={500}
           height={500}
+          priority={true}
         />
 
-        <div className={styles.products_grid__item__details}>
-          <span className={styles.products_grid__item__details__brand}>
-            {brand}
-          </span>
+        <div className={styles.product_card__details}>
+          <span className={styles.product_card__details__brand}>{brand}</span>
 
-          <span className={styles.products_grid__item__details__name_price}>
-            <span className={styles.products_grid__item__details__name}>
-              {name}
-            </span>
+          <span className={styles.product_card__details__name_price}>
+            <span className={styles.product_card__details__name}>{name}</span>
 
-            <span className={styles.products_grid__item__details__price}>
+            <span className={styles.product_card__details__price}>
               {price} EUR
             </span>
           </span>

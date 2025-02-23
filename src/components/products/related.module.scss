@@ -1,0 +1,28 @@
+@use "../utils" as *;
+
+.related_products {
+  margin-top: 80px;
+  overflow: hidden;
+
+  @media (min-width: $md-width) {
+    margin-top: 88px;
+  }
+
+  @media (min-width: $lg-width) {
+    margin-top: 154px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0 auto 40px;
+    max-width: 754px;
+
+    @include container;
+
+    @media (min-width: $lg-width) {
+      max-width: 1200px;
+    }
+  }
+}

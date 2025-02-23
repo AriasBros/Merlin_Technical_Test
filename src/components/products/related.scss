@@ -1,0 +1,58 @@
+@use "../utils" as *;
+
+.swiper {
+  --swiper-scrollbar-size: 1px;
+  --swiper-scrollbar-border-radius: 0;
+  --swiper-scrollbar-drag-bg-color: #000;
+  --swiper-scrollbar-bg-color: #ccc;
+  --swiper-scrollbar-bottom: 0;
+  --swiper-scrollbar-sides-offset: 0;
+
+  margin: auto;
+  overflow: visible;
+
+  @media (min-width: $md-width) {
+    max-width: 754px;
+  }
+
+  @media (min-width: $lg-width) {
+    max-width: 1200px;
+  }
+
+  @include container;
+
+  &-slide {
+    width: 344px;
+  }
+
+  &-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (min-width: $md-width) {
+      max-width: 754px;
+    }
+
+    @media (min-width: $lg-width) {
+      max-width: 1200px;
+    }
+  }
+
+  &-scrollbar {
+    position: relative !important;
+    transition: height 0.25s ease-in-out;
+    margin: 40px auto 0;
+
+    @media (min-width: $md-width) {
+      max-width: 674px;
+    }
+
+    @media (min-width: $lg-width) {
+      max-width: 1000px;
+    }
+
+    &:hover, &:active {
+      --swiper-scrollbar-size: 4px;
+    }
+  }
+}

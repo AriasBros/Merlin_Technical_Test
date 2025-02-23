@@ -23,7 +23,11 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 42px 0;
+    padding: 24px 0;
+
+    @media (min-width: $md-width) {
+      padding: 42px 0;
+    }
 
     &__name {
       font-size: 12px;
