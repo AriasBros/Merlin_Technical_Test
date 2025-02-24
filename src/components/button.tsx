@@ -21,11 +21,13 @@ export default function Button({
   dense = false,
   disabled = false,
 }: Props) {
+  type = type || "standard";
+
   const classes = clsx(
     styles.button,
     className,
+    styles[`button--${type}`],
     dense ? styles[`button--dense`] : null,
-    type ? styles[`button--${type}`] : null,
     disabled ? styles["button--disabled"] : null,
   );
 
