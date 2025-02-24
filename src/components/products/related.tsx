@@ -36,8 +36,6 @@ export default function RelatedProducts() {
         mousewheel={{ enabled: true, forceToAxis: true }}
         direction="horizontal"
         slidesPerView="auto"
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         {data?.related?.map((product: ProductInterface) => (
           <SwiperSlide key={product.id}>
