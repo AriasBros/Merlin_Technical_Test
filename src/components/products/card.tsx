@@ -12,43 +12,31 @@ interface Props {
   fixed?: boolean;
 }
 
-export default function ProductCard({
-  id,
-  name,
-  brand,
-  image,
-  price,
-  fixed = false,
-}: Props) {
-  const classes = clsx(
-    styles.product_card,
-    fixed ? styles["product_card--fixed"] : null,
-  );
+export default function ProductCard({ id, name, brand, image, price }: Props) {
+  const classes = clsx(styles.product_card);
 
   return (
-    <li className={classes}>
-      <Link href={`/product/${id}`} className={styles.product_card__link}>
-        <Image
-          className={styles.product_card__image}
-          src={image}
-          alt={name}
-          width={500}
-          height={500}
-          priority={true}
-        />
+    <Link href={`/product/${id}`} className={classes}>
+      <Image
+        className={styles.product_card__image}
+        src={image}
+        alt={name}
+        width={500}
+        height={500}
+        priority={true}
+      />
 
-        <div className={styles.product_card__details}>
-          <span className={styles.product_card__details__brand}>{brand}</span>
+      <div className={styles.product_card__details}>
+        <span className={styles.product_card__details__brand}>{brand}</span>
 
-          <span className={styles.product_card__details__name_price}>
-            <span className={styles.product_card__details__name}>{name}</span>
+        <span className={styles.product_card__details__name_price}>
+          <span className={styles.product_card__details__name}>{name}</span>
 
-            <span className={styles.product_card__details__price}>
-              {price} EUR
-            </span>
+          <span className={styles.product_card__details__price}>
+            {price} EUR
           </span>
-        </div>
-      </Link>
-    </li>
+        </span>
+      </div>
+    </Link>
   );
 }

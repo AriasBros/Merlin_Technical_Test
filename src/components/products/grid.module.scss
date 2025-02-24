@@ -24,4 +24,8 @@
   @media (min-width: $xl-width) {
     grid-template-columns: repeat(5, 1fr);
   }
+
+  &__item {
+    display: flex;
+  }
 }

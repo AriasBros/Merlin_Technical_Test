@@ -42,7 +42,6 @@ export default function RelatedProducts() {
         {data?.related?.map((product: ProductInterface) => (
           <SwiperSlide key={product.id}>
             <ProductCard
-              fixed
               id={product.id}
               name={product.name}
               brand={product.brand}
@@ -55,21 +54,3 @@ export default function RelatedProducts() {
     </div>
   );
 }
-
-/*
-      <div className={styles.related_products__list_scroller}>
-        <ul className={styles.related_products__list}>
-          {data?.related?.map((product: ProductInterface) => (
-            <ProductCard
-              fixed
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              brand={product.brand}
-              price={product.price}
-              image={product.image}
-            />
-          ))}
-        </ul>
-      </div>
- */

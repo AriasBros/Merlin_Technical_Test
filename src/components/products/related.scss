@@ -1,6 +1,9 @@
 @use "../utils" as *;
 
 .swiper {
+  --product-card-size: 344px;
+  --product-card-size-md: 377px;
+
   --swiper-scrollbar-size: 1px;
   --swiper-scrollbar-border-radius: 0;
   --swiper-scrollbar-drag-bg-color: #000;
@@ -22,7 +25,18 @@
   @include container;
 
   &-slide {
-    width: 344px;
+    width: var(--product-card-size);
+    height: var(--product-card-size);
+
+    @media (min-width: $md-width) {
+      width: var(--product-card-size-md);
+      height: var(--product-card-size-md);
+    }
+
+    @media (min-width: $lg-width) {
+      width: var(--product-card-size);
+      height: var(--product-card-size);
+    }
   }
 
   &-wrapper {

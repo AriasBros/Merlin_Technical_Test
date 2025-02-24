@@ -9,14 +9,12 @@
   background-size: 100% 200%;
   transition: background var(--hover-animation);
 
-  &__link {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 16px;
-    gap: 24px;
-    width: 100%;
-  }
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  gap: 24px;
 
   &__image {
     margin: auto;
@@ -59,11 +57,5 @@
         }
       }
     }
-  }
-
-  &--fixed {
-    width: 344px;
-    height: 344px;
-    flex: 1 0 344px;
   }
 }

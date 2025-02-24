@@ -15,14 +15,15 @@ export default function ProductsGrid() {
   return (
     <ul className={styles.products_grid}>
       {data.map((product) => (
-        <ProductItem
-          key={product.id}
-          id={product.id}
-          name={product.name}
-          brand={product.brand}
-          price={product.price}
-          image={product.image}
-        />
+        <li key={product.id} className={styles.products_grid__item}>
+          <ProductItem
+            id={product.id}
+            name={product.name}
+            brand={product.brand}
+            price={product.price}
+            image={product.image}
+          />
+        </li>
       ))}
     </ul>
   );
