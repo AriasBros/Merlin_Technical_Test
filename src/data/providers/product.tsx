@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import {createContext, ReactNode, useContext} from "react";
+import { createContext, ReactNode, useContext } from "react";
 import useSWR from "swr";
-import {fetcher} from "@/data/fetchers/product";
-import {ProductInterface} from "@/data/models/product";
+import { fetcher } from "@/data/fetchers/product";
+import { ProductInterface } from "@/data/models/product";
 
 interface Props {
   id: string;
@@ -11,20 +11,26 @@ interface Props {
 }
 
 interface ProductContextInterface {
-  readonly data: ProductInterface|null|undefined;
+  readonly data: ProductInterface | null | undefined;
   readonly isLoading: boolean;
 }
 
-const ProductContext = createContext<ProductContextInterface>({data: null, isLoading: false});
+const ProductContext = createContext<ProductContextInterface>({
+  data: null,
+  isLoading: false,
+});
 
-export function ProductProvider({id, children }: Props) {
+export function ProductProvider({ id, children }: Props) {
   const { data, isLoading } = useSWR<ProductInterface>(
     `${process.env.NEXT_PUBLIC_API_HOST}products/${id}`,
     fetcher,
+    {
+      errorRetryCount: 2,
+    },
   );
 
   return (
-    <ProductContext.Provider value={{data, isLoading}}>
+    <ProductContext.Provider value={{ data, isLoading }}>
       {children}
     </ProductContext.Provider>
   );

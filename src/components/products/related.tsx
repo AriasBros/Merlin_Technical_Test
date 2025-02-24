@@ -22,7 +22,7 @@ import {
 export default function RelatedProducts() {
   const { data, isLoading } = useProduct();
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return <></>;
   }
 

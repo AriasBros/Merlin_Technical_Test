@@ -9,6 +9,7 @@ import { StorageInterface } from "@/data/models/storage";
 import { ColorInterface } from "@/data/models/color";
 import { useState } from "react";
 import { CartActionType, useCart } from "@/data/providers/cart";
+import NotFoundError from "@/components/not_found_error";
 
 export default function ProductDetailsView() {
   const [color, setColor] = useState<ColorInterface>();
@@ -29,10 +30,14 @@ export default function ProductDetailsView() {
     });
   }
 
+  if (!data) {
+    return <NotFoundError message="Product Not Found" />;
+  }
+
   return (
     <div className={styles.product_details_view}>
       <ProductInfo
-        product={data!}
+        product={data}
         storage={storage}
         color={color}
         onSelectStorage={setStorage}
